@@ -23,7 +23,7 @@ func InitRouter() *gin.Engine {
 		expenses.POST("", expense.AddNewExpense)
 		expenses.GET("/:id", expense.GetExpense)
 		expenses.GET("", expense.GetExpenses)
-		expenses.PUT("/:id", expense.UpdateNewExpense)
+		expenses.PUT("/:id", expense.UpdateExpense)
 	}
 
 	return r
