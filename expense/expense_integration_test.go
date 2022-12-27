@@ -58,6 +58,28 @@ func TestGetAllExpense(t *testing.T) {
 	assert.NotEqual(t, 0, len(eb))
 }
 
+func TestUpdateExpenseByID(t *testing.T) {
+	body := bytes.NewBufferString(`{
+		"id": 1,
+		"title": "anuchito smoothie",
+		"amount": 99,
+		"note": "kbtg",
+		"tags": ["InW"]
+	}`)
+	var eb ExpenseBody
+
+	res := request(http.MethodPost, uri(), body)
+	err := res.Decode(&eb)
+
+	assert.Nil(t, err)
+	assert.Equal(t, http.StatusCreated, res.StatusCode)
+	assert.NotEqual(t, 0, eb.Id)
+	assert.Equal(t, "anuchito smoothie", eb.Title)
+	assert.Equal(t, int64(99), eb.Amount)
+	assert.Equal(t, 1, len(eb.Tags))
+	assert.Equal(t, "InW", eb.Tags[0])
+}
+
 func uri(paths ...string) string {
 	host := "http://localhost:2565/expenses"
 	if paths == nil {
