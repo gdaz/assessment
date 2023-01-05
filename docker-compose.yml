@@ -1,0 +1,11 @@
+version: '3'
+services:
+  assessment:
+    image: kbtg/assessment:latest
+    container_name: assessment
+    restart: always
+    ports:
+      - 2565:2565
+    environment:
+      PORT: ":2565"
+      DATABASE_URL: "postgres://zcqexosc:GK-Gjf0HlysSDAe1vhfeOxwEq3p2uYlD@tiny.db.elephantsql.com/zcqexosc"
