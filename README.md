@@ -181,3 +181,4 @@
 * แต่ละ story ควรใช้ branch ของตัวเองแล้ว merge กลับไปที่ main ด้วย 3-way merge
 ![ตัวอย่าง](three-way-merge.png)
 
+docker run -d -it --name assessment -e PORT=:2565 -e DATABASE_URL=postgres:// -p 2565:2565 kbtg/assessment:latest
